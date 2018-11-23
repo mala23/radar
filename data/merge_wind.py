@@ -5,12 +5,10 @@ import pandas as pandas
 data = pandas.read_csv('./datasets/wind_tidy.csv')
 data.columns = ['Site', 'Startup', 'Production', 'Location', 'Canton', 'ZE-Coordinates']
 data = data[['Location','Production','Startup']]
-
 print(data)
 
 # import coordinates csv
 coordinates = pandas.read_csv('./coordinates/coordinates_wind.csv')
-
 print(coordinates)
 
 # merge
@@ -19,3 +17,6 @@ merged = pandas.merge(data, coordinates, how='outer', right_on='Location', left_
 merged.drop(merged.columns[[5]], axis=1, inplace=True)
 merged.drop_duplicates(inplace=True)
 print(merged)
+
+# save to csv
+merged.to_csv(path_or_buf='./wind.csv', encoding='utf-8', index=False)
