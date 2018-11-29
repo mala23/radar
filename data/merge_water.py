@@ -16,4 +16,4 @@ merged.drop_duplicates(inplace=True)
 #print(merged)
 
 # save to csv
-merged.to_csv(path_or_buf='./water2.csv', index=False)
+merged.to_csv(path_or_buf='./water_merged.csv', index=False)
